@@ -1,0 +1,26 @@
+.card {
+  padding: 2em;
+}
+
+#nameInputBox {
+  background-color: white;
+  width: 100%;
+  height: 100px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50px;
+}
+
+#nameInputBox input {
+  padding: 10px;
+}
+
+#nameInputBox input[type=text] {
+  font-weight: 600;
+}
+
+#nameInputBox input[type=submit] {
+  color: blue;
+}
