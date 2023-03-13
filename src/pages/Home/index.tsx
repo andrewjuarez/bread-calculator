@@ -1,38 +1,102 @@
-import React, { useState, useRef } from 'react';
-import './HomePage.css';
-import NavBar from '../../common/NavBar';
+import React, { useState } from "react";
 
-const HomePage: React.FC = () => {
-  const [count, setCount] = useState(0);
-  const nameRef = useRef<HTMLInputElement>(null);
+interface FormData {
+  flourWeight: number;
+  waterWeight: number;
+  saltWeight: number;
+  starterWeight: number;
+}
 
-  function handleNameClick (e: React.FormEvent): void {
-    e.preventDefault();
-    const name: string | null = nameRef?.current?.value ?? null;
+const Form = () => {
+  const [formData, setFormData] = useState<FormData>({
+    flourWeight: 0,
+    waterWeight: 0,
+    saltWeight: 0,
+    starterWeight: 0,
+  });
 
-    if (name) { alert(`Hello ${name}`); } else { alert('I don\'t even know who you are..'); }
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = event.target;
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      [name]: parseFloat(value),
+    }));
+  };
+
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const { flourWeight } = formData;
+    setFormData({
+      flourWeight,
+      waterWeight: flourWeight * 0.8,
+      saltWeight: flourWeight * 0.025,
+      starterWeight: flourWeight * 0.23,
+    });
   };
 
   return (
-    <div className='App'>
-      <NavBar />
-      <h1>Vite + React + TypeScript with ESlint template</h1>
-      <div className='card'>
-        <button onClick={() => { setCount((count) => count + 1); }}>
-          count is {count}
-        </button>
-        <p>
-          Edit this page and save to test HMR
-        </p>
+    <form onSubmit={handleSubmit} className="max-w-lg mx-auto">
+      <h2 className="text-2xl font-bold mb-4">Sourdough Recipe Calculator</h2>
+      <div className="mb-4">
+        <label htmlFor="flourWeight" className="block font-bold mb-2">
+          Flour weight:
+        </label>
+        <input
+          type="number"
+          name="flourWeight"
+          id="flourWeight"
+          value={formData.flourWeight}
+          onChange={handleChange}
+          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        />
       </div>
-      <div id='nameInputBox'>
-        <form onSubmit={handleNameClick}>
-          <input ref={nameRef} type='text' placeholder='My name is...' />
-          <input type='submit' value='Greet' />
-        </form>
+      <div className="mb-4">
+        <label htmlFor="waterWeight" className="block font-bold mb-2">
+          Water weight:
+        </label>
+        <input
+          type="number"
+          name="waterWeight"
+          id="waterWeight"
+          value={formData.waterWeight}
+          readOnly
+          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        />
       </div>
-    </div>
+      <div className="mb-4">
+        <label htmlFor="saltWeight" className="block font-bold mb-2">
+          Salt weight:
+        </label>
+        <input
+          type="number"
+          name="saltWeight"
+          id="saltWeight"
+          value={formData.saltWeight}
+          readOnly
+          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        />
+      </div>
+      <div className="mb-4">
+        <label htmlFor="starterWeight" className="block font-bold mb-2">
+          Starter weight:
+        </label>
+        <input
+          type="number"
+          name="starterWeight"
+          id="starterWeight"
+          value={formData.starterWeight}
+          readOnly
+          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        />
+      </div>
+      <button
+        type="submit"
+        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+      >
+        Calculate
+      </button>
+    </form>
   );
 };
 
-export default HomePage;
+export default Form;

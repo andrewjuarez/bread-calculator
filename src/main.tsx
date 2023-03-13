@@ -7,17 +7,12 @@ import {
 import './index.css';
 
 import HomePage from './pages/Home';
-import AboutPage from './pages/About';
 import NotFoundPage from './pages/NotFound';
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <HomePage />
-  },
-  {
-    path: '/about',
-    element: <AboutPage />
   },
   {
     path: '*',
