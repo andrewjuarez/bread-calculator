@@ -91,7 +91,7 @@ const Form: React.FC = () => {
       </div>
       <button
         type='submit'
-        className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline'
+        className='content-center bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline'
       >
         Calculate
       </button>
