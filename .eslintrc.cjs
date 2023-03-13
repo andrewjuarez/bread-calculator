@@ -37,7 +37,12 @@ module.exports = {
       },
     ],
     'jsx-quotes': ['error', 'prefer-single'],
-    '@typescript-eslint/strict-boolean-expressions': 'warn'
+    '@typescript-eslint/strict-boolean-expressions': 'warn',
+    '@typescript-eslint/member-delimiter-style': ['error', {
+      multiline: { delimiter: "semi", requireLast: true },
+      singleline: { delimiter: "semi", requireLast: false },
+      multilineDetection: "brackets",
+    }]
   },
   settings: {
     'import/resolver': {
