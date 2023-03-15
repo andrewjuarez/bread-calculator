@@ -13,7 +13,7 @@ import NotFoundPage from './pages/NotFound';
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
     <BrowserRouter>
-      <div className='flex'>
+      <div className='flex flex-col w-screen h-screen bg-bgColor'>
         <Routes>
           <Route path='/' element={<HomePage />} />
           <Route path='*' element={<NotFoundPage />} />

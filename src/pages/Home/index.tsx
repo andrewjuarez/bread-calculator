@@ -35,8 +35,8 @@ const Form: React.FC = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className='max-w-lg mx-auto'>
-      <h2 className='text-2xl font-bold mb-4'>Sourdough Recipe Calculator</h2>
+    <form onSubmit={handleSubmit} className='flex flex-col max-w-lg mx-auto text-blue-900'>
+      <h2 className='text-2xl font-bold mb-4 text-gray-700'>Sourdough Recipe Calculator</h2>
       <div className='mb-4'>
         <label htmlFor='flourWeight' className='block font-bold mb-2'>
           Flour weight:
@@ -91,7 +91,7 @@ const Form: React.FC = () => {
       </div>
       <button
         type='submit'
-        className='content-center bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline'
+        className='items-center bg-blue-900 hover:bg-green-800 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline'
       >
         Calculate
       </button>
