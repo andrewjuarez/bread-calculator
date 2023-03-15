@@ -74,7 +74,7 @@ const Form: React.FC = () => {
       </button>
       <div className='mb-4 mt-6'>
         <label htmlFor='waterWeight' className='block font-bold mb-2'>
-          Water weight:
+          Water weight ({formData.hydrationLevel >= 0 ? formData.hydrationLevel : 0}%):
         </label>
         <input
           type='number'
@@ -87,7 +87,7 @@ const Form: React.FC = () => {
       </div>
       <div className='mb-4'>
         <label htmlFor='saltWeight' className='block font-bold mb-2'>
-          Salt weight:
+          Salt weight (2.5%):
         </label>
         <input
           type='number'
@@ -100,7 +100,7 @@ const Form: React.FC = () => {
       </div>
       <div className='mb-4'>
         <label htmlFor='starterWeight' className='block font-bold mb-2'>
-          Starter weight:
+          Starter weight (23%):
         </label>
         <input
           type='number'
