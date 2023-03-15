@@ -82,7 +82,7 @@ const Form: React.FC = () => {
           id='waterWeight'
           value={formData.waterWeight}
           readOnly
-          className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
+          className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 bg-gray-200 leading-tight focus:outline-none focus:shadow-outline'
         />
       </div>
       <div className='mb-4'>
@@ -95,7 +95,7 @@ const Form: React.FC = () => {
           id='saltWeight'
           value={formData.saltWeight}
           readOnly
-          className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
+          className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 bg-gray-200 leading-tight focus:outline-none focus:shadow-outline'
         />
       </div>
       <div className='mb-4'>
@@ -108,7 +108,7 @@ const Form: React.FC = () => {
           id='starterWeight'
           value={formData.starterWeight}
           readOnly
-          className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
+          className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 bg-gray-200 leading-tight focus:outline-none focus:shadow-outline'
         />
       </div>
     </form>
