@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-const Navbar = (): React.FC => {
+const Navbar = (): JSX.Element => {
   const [showMenu, setShowMenu] = useState(false);
 
   const toggleMenu = (): void => {

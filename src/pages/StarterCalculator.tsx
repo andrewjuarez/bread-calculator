@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const StarterCalculator = (): React.FC => {
+const StarterCalculator = (): JSX.Element => {
   const [amount, setAmount] = useState<number>(0);
   const [ratio, setRatio] = useState<string>('1:3:3');
   const [water, setWater] = useState<number>(0);
