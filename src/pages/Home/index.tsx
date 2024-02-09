@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 interface FormData {
   hydrationLevel: number;
@@ -10,8 +10,8 @@ interface FormData {
 
 const Form: React.FC = () => {
   const [formData, setFormData] = useState<FormData>({
-    hydrationLevel: 80,
-    flourWeight: 400,
+    hydrationLevel: 72,
+    flourWeight: 500,
     waterWeight: 0,
     saltWeight: 0,
     starterWeight: 0
@@ -25,8 +25,10 @@ const Form: React.FC = () => {
     }));
   };
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
-    event.preventDefault();
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement> | null): void => {
+    if (event != null) {
+      event.preventDefault();
+    }
     const { flourWeight, hydrationLevel } = formData;
     setFormData({
       flourWeight,
@@ -36,6 +38,14 @@ const Form: React.FC = () => {
       starterWeight: flourWeight * 0.23
     });
   };
+
+  const getTotalWeight = (): number => (
+    formData.flourWeight + formData.waterWeight + formData.saltWeight + formData.starterWeight
+  );
+
+  useEffect(() => {
+    handleSubmit(null);
+  }, []);
 
   return (
     <form onSubmit={handleSubmit} className='flex flex-col max-w-lg mx-auto text-blue-900'>
@@ -107,6 +117,19 @@ const Form: React.FC = () => {
           name='starterWeight'
           id='starterWeight'
           value={formData.starterWeight}
+          readOnly
+          className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 bg-gray-200 leading-tight focus:outline-none focus:shadow-outline'
+        />
+      </div>
+      <div className='mb-4'>
+        <label htmlFor='totalWeight' className='block font-bold mb-2'>
+          Total Weight:
+        </label>
+        <input
+          type='number'
+          name='totalWeight'
+          id='totalWeight'
+          value={getTotalWeight()}
           readOnly
           className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 bg-gray-200 leading-tight focus:outline-none focus:shadow-outline'
         />
