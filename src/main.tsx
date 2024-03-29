@@ -10,6 +10,7 @@ import './index.css';
 import Navbar from './common/NavBar';
 import SourdoughCalculator from './pages/SourdoughCalculator';
 import StarterCalculator from './pages/StarterCalculator';
+import StarterMultiplier from './pages/StarterMultiplier';
 import NotFoundPage from './pages/NotFound';
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
@@ -19,7 +20,8 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
         <Navbar />
         <Routes>
           <Route path='/' element={<SourdoughCalculator />} />
-          <Route path='/starter-calculator' element={<StarterCalculator />} />
+          <Route path='/starter/calculator' element={<StarterCalculator />} />
+          <Route path='/starter/multiplier' element={<StarterMultiplier />} />
           <Route path='*' element={<NotFoundPage />} />
         </Routes>
       </div>

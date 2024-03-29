@@ -44,10 +44,18 @@ const Navbar = (): JSX.Element => {
                 </li>
                 <li>
                   <Link
-                    to='/starter-calculator'
+                    to='/starter/calculator'
                     className='text-white hover:text-gray-300 block'
                   >
                     Starter Calculator
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to='/starter/multiplier'
+                    className='text-white hover:text-gray-300 block'
+                  >
+                    Starter Multiplier
                   </Link>
                 </li>
               </ul>
