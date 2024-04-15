@@ -14,7 +14,7 @@ const Navbar = (): JSX.Element => {
         <Link to='/' className='text-white text-2xl font-bold'>
           Baking Tools
         </Link>
-        <div className='md:hidden'>
+        <div>
           <button onClick={toggleMenu} className='text-white'>
             <svg
               xmlns='http://www.w3.org/2000/svg'
@@ -32,12 +32,12 @@ const Navbar = (): JSX.Element => {
             </svg>
           </button>
           {showMenu && (
-            <div className='absolute top-full left-0 w-full bg-gray-800 py-4 px-2' onClick={() => { setShowMenu(false); }}>
+            <div className='absolute top-full left-0 w-full bg-gray-800 py-4 px-2 text-right' onClick={() => { setShowMenu(false); }}>
               <ul className='flex flex-col space-y-4'>
                 <li>
                   <Link
                     to='/'
-                    className='text-white hover:text-gray-300 block'
+                    className='text-white hover:text-gray-300 block px-4'
                   >
                     Sourdough Calculator
                   </Link>
@@ -45,7 +45,7 @@ const Navbar = (): JSX.Element => {
                 <li>
                   <Link
                     to='/starter/calculator'
-                    className='text-white hover:text-gray-300 block'
+                    className='text-white hover:text-gray-300 block px-4'
                   >
                     Starter Calculator
                   </Link>
@@ -53,7 +53,7 @@ const Navbar = (): JSX.Element => {
                 <li>
                   <Link
                     to='/starter/multiplier'
-                    className='text-white hover:text-gray-300 block'
+                    className='text-white hover:text-gray-300 block px-4'
                   >
                     Starter Multiplier
                   </Link>
